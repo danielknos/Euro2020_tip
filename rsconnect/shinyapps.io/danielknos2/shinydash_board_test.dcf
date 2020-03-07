@@ -1,0 +1,12 @@
+name: shinydash_board_test
+title: shinydash_board_test
+username:
+account: danielknos2
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1851217
+bundleId: 2822546
+url: https://danielknos2.shinyapps.io/shinydash_board_test/
+when: 1582489079.67257
+asMultiple: FALSE
+asStatic: FALSE

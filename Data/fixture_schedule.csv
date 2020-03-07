@@ -1,0 +1,52 @@
+Game_No;Round_Number;Date;Location;Home_Team;Away_Team;Group
+1;1;2020-06-12 21:00;Rome;Turkey;Italy;A
+2;1;2020-06-13 15:00;Baku;Wales;Switzerland;A
+3;1;2020-06-13 21:00;Saint Petersburg;Belgium;Russia;B
+4;1;2020-06-13 18:00;Copenhagen;Denmark;Finland;B
+5;1;2020-06-14 21:00;Amsterdam;Netherlands;Ukraine;C
+6;1;2020-06-14 18:00;Bucharest;Austria;PO D;C
+7;1;2020-06-14 15:00;London;England;Croatia;D
+8;1;2020-06-15 15:00;Glasgow;PO C;Czech Republic;D
+9;1;2020-06-15 21:00;Bilbao;Spain;Sweden;E
+10;1;2020-06-15 18:00;Dublin;Poland;PO B;E
+11;1;2020-06-16 21:00;Munich;France;Germany;F
+12;1;2020-06-16 18:00;Budapest;PO A;Portugal;F
+13;2;2020-06-17 21:00;Rome;Italy;Switzerland;A
+14;2;2020-06-17 18:00;Baku;Turkey;Wales;A
+15;2;2020-06-17 15:00;Saint Petersburg;Finland;Russia;B
+16;2;2020-06-18 18:00;Copenhagen;Denmark;Belgium;B
+17;2;2020-06-18 21:00;Amsterdam;Netherlands;Austria;C
+18;2;2020-06-18 15:00;Bucharest;Ukraine;PO D;C
+19;2;2020-06-19 21:00;London;England;PO C;D
+20;2;2020-06-19 18:00;Glasgow;Croatia;Czech Republic;D
+21;2;2020-06-20 21:00;Bilbao;Spain;Poland;E
+22;2;2020-06-19 15:00;Dublin;Sweden;PO B;E
+23;2;2020-06-20 18:00;Munich;Portugal;Germany;F
+24;2;2020-06-20 15:00;Budapest;PO A;France;F
+25;3;2020-06-21 18:00;Rome;Italy;Wales;A
+26;3;2020-06-21 18:00;Baku;Switzerland;Turkey;A
+27;3;2020-06-22 21:00;Saint Petersburg;Finland;Belgium;B
+28;3;2020-06-22 21:00;Copenhagen;Russia;Denmark;B
+29;3;2020-06-22 18:00;Amsterdam;PO D;Netherlands;C
+30;3;2020-06-22 18:00;Bucharest;Ukraine;Austria;C
+31;3;2020-06-23 21:00;London;Czech Republic;England;D
+32;3;2020-06-23 21:00;Glasgow;Croatia;PO C;D
+33;3;2020-06-24 18:00;Bilbao;PO B;Spain;E
+34;3;2020-06-24 18:00;Dublin;Sweden;Poland;E
+35;3;2020-06-24 21:00;Munich;Germany;PO A;F
+36;3;2020-06-24 21:00;Budapest;Portugal;France;F
+38;4;2020-06-27 18:00;Amsterdam;A2;B2;38
+37;4;2020-06-27 21:00;London;A1;C2;37
+39;4;2020-06-28 21:00;Bilbao;B1;WB;39
+40;4;2020-06-28 18:00;Budapest;C1;WC;40
+42;4;2020-06-29 18:00;Copenhagen;D2;E2;42
+41;4;2020-06-29 21:00;Bucharest;F1;WF;41
+43;4;2020-06-30 21:00;Glasgow;E1;WE;43
+44;4;2020-06-30 18:00;Dublin;D1;F2;44
+45;5;2020-07-03 18:00;Saint Petersburg;W41;W42;45
+46;5;2020-07-03 21:00;Munich;W39;W37;46
+48;5;2020-07-04 21:00;Rome;W43;W44;48
+47;5;2020-07-04 18:00;Baku;W40;W38;47
+49;6;2020-07-07 21:00;London;W46;W45;49
+50;6;2020-07-08 21:00;London;W48;W47;50
+51;7;2020-07-12 21:00;London;W49;W50;51
