@@ -6,8 +6,11 @@ check_answers <- function(data_in){
   # data_in <- fread('C:/Users/danie/Downloads/fdfdfdf.csv')
   
   no_of_results_per_group <- data_in[Group %in% c('A','B','C','D','E','F'),.(.N), by = 'Group']
-  ind_yes <- which(no_of_results_per_group$N == 6)
-  return_table$Done[ind_yes] = 'Yes'
+  no_of_results_per_group <- no_of_results_per_group[order(Group)]
+  no_of_results_per_group$code <- paste('Group',no_of_results_per_group$Group)
+  completed_groups <- no_of_results_per_group[N==6]$code
+  return_table[return_table$Check %in% completed_groups]$Done <- 'Yes'
+  
   
   return_table_knockout <- data.table('Check' = c('8th final','Quarter final','Semi final','Final','Topscorer','Yellow cards', 'Competitor'), 'Done' = 'No')
   
