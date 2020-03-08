@@ -5,8 +5,8 @@ account: danielknos2
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 1851425
-bundleId: 2839912
+bundleId: 2862053
 url: https://danielknos2.shinyapps.io/Euro2020_tip/
-when: 1582992192.40967
+when: 1583696124.76191
 asMultiple: FALSE
 asStatic: FALSE

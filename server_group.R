@@ -154,6 +154,7 @@ server <- function(session, input, output) {
   topScorerInfo <- reactive(data.table(Game_No = '',Round_Number="", Date = "", Location="TopScorer", Home_Team=input$topScorer, Away_Team="", Group="", Home="", Away=""))
   yellowCardInfo <- reactive(data.table(Game_No = '',Round_Number="", Date = "", Location="Yellow Cards", Home_Team=input$yellowCards, Away_Team="", Group="", Home="", Away=""))
   competitorInfo <- reactive(data.table(Game_No = '',Round_Number="", Date = "", Location="Competitor", Home_Team=input$name, Away_Team="", Group="", Home="", Away=""))
+  competitorEmail <- reactive(data.table(Game_No = '',Round_Number="", Date = "", Location="Email", Home_Team=input$email, Away_Team="", Group="", Home="", Away=""))
   tab_A <- reactive({if(!is.null(input$group_A)){hot_to_r(input$group_A)}})
   tab_B <- reactive({if(!is.null(input$group_B)){hot_to_r(input$group_B)}})
   tab_C <- reactive({if(!is.null(input$group_C)){hot_to_r(input$group_C)}})
@@ -168,7 +169,7 @@ server <- function(session, input, output) {
   
   observe({
   
-    allData_in <- rbind(tab_A(),tab_B(),tab_C(),tab_D(),tab_E(),tab_F(), final_8_schedule(), final_4_schedule(), final_2_schedule(), final_1_schedule(), topScorerInfo(), yellowCardInfo(),competitorInfo())
+    allData_in <- rbind(tab_A(),tab_B(),tab_C(),tab_D(),tab_E(),tab_F(), final_8_schedule(), final_4_schedule(), final_2_schedule(), final_1_schedule(), topScorerInfo(), yellowCardInfo(),competitorInfo(),competitorEmail())
     output$all_results <- renderTable(allData_in)
     
   })
@@ -178,24 +179,40 @@ server <- function(session, input, output) {
                             if(!is.null(input$quarter_final)){hot_to_r(input$quarter_final)},
                             if(!is.null(input$semi_final)){hot_to_r(input$semi_final)},
                             if(!is.null(input$final)){hot_to_r(input$final)},
-                            topScorerInfo(), yellowCardInfo(), competitorInfo()))
+                            topScorerInfo(), yellowCardInfo(), competitorInfo(), competitorEmail()))
   
   answer_check <- reactive({check_answers(allData())})
   observe({
     output$answer_check <- renderTable(answer_check())
   })
   
-  
+  observeEvent(input$upload,{
+    if(any(answer_check()$Done != 'Yes')){
+      shinyalert("Nope", "Something's missing. Make sure you complete all the steps in the table on top", type = "error")
+      return(NULL)
+    }
+    
+    fileName <- paste0(input$name,'_',gsub(pattern = ':',replacement = '_',Sys.time()),'.csv')
+    # Write the data to a temporary file locally
+    filePath <- file.path(tempdir(), fileName)
+    fwrite(allData(), filePath, row.names = FALSE)
+    
+    drop_upload(filePath, path = 'Euro2020_tip', mode = 'add')
+    shinyalert("Upload complete", "Click the 'save local copy' button to save a copy of your scores", type = "success")
+    
+  })
 
   output$export <- downloadHandler(
-    
+
     filename = function() {
       paste(input$name, ".csv", sep = "")
     },
     content = function(fname){
-      fwrite(allData(), fname, row.names = TRUE)
+      print(fname)
+      fwrite(allData(), fname, row.names = FALSE)
+
     },
-    contentType = "text/csv")  
+    contentType = "text/csv")
   
 }
 

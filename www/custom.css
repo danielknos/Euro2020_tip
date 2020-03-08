@@ -68,4 +68,9 @@ background-color: #ffffff;
 .ht_master tr > td {
   border-right: 1px solid black;
 }
+.bttn-fill.bttn-warning {
+    background: inherit;
+    color: #000;
+	background-color: snow;
+}
               

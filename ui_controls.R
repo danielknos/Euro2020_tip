@@ -3,6 +3,7 @@ header <- dashboardHeader(title = ' Euro 2020')
 
 
 sidebar <- dashboardSidebar(
+  useShinyalert(),
   tags$img(src='https://www.initialvip.com/wp-content/uploads/2019/06/Euro-2020.png', height = 180, width = 180),
   sidebarMenu(
     id = 'tabs',
@@ -234,20 +235,58 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              textInput("name", "Your Name"),
-              textInput("topScorer", "Top scorer"),
+              textInput("name", "Your Name", value = 'Write your name here'),
+              textInput("email", "Email adress", value = 'Write your email adress here'),
+              textInput("topScorer", "Top scorer", value = 'Write the last name of your guessed top scorer here'),
               numericInput("yellowCards", "No of yellow cards", value = 0)
         )),
     tabItem(tabName = 'export',
             widgetUserBox(
+              title = 'Checks',
+              color = 'navy',
+              type = 2,
+              width = 2,
+              collapsible = FALSE,
+              boxToolSize = 'xs',
+              tableOutput('answer_check')
+              
+            ),
+            widgetUserBox(
               title = 'Export',
               color = 'navy',
               type = 2,
+              width = 4,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              tableOutput('answer_check'),
-              downloadButton("export", "Export results"),
+              actionBttn(
+                inputId = 'upload',
+                label = 'Upload results',
+                icon = icon('dropbox'),
+                style = "fill",
+                color = "default",
+                size = "md",
+                block = FALSE,
+                no_outline = TRUE
+              ),
+              downloadBttn(
+                outputId = 'export',
+                label = 'Save a local copy',
+                style = "fill",
+                color = "warning",
+                size = "md",
+                block = FALSE,
+                no_outline = TRUE
+              )
+            ),
+            widgetUserBox(
+              title = 'Summary',
+              color = 'navy',
+              type = 2,
+              width = 6,
+              collapsible = FALSE,
+              boxToolSize = 'xs',
               tableOutput("all_results")
-            ))
+            )
+          )
   )
 )

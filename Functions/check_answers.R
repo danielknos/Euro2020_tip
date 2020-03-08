@@ -12,7 +12,7 @@ check_answers <- function(data_in){
   return_table[return_table$Check %in% completed_groups]$Done <- 'Yes'
   
   
-  return_table_knockout <- data.table('Check' = c('8th final','Quarter final','Semi final','Final','Topscorer','Yellow cards', 'Competitor'), 'Done' = 'No')
+  return_table_knockout <- data.table('Check' = c('8th final','Quarter final','Semi final','Final','Topscorer','Yellow cards', 'Competitor', 'Email'), 'Done' = 'No')
   
   no_of_results_per_stage <- data_in[Round_Number %in% c(4,5,6, 'Final match'),.(.N), by = 'Round_Number']
 
@@ -47,7 +47,9 @@ check_answers <- function(data_in){
   if(data_in[Location == 'Competitor']$Home_Team != ''){
     return_table_knockout[Check == 'Competitor']$Done <- 'Yes'  
   }
-    
+  if(grepl('@',data_in[Location == 'Email']$Home_Team)){
+    return_table_knockout[Check == 'Email']$Done <- 'Yes'  
+  }  
 
   return_table <- rbind(return_table, return_table_knockout)
   return(return_table)
