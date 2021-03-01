@@ -236,10 +236,10 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              textInput("name", "Your Name", value = 'Test_A'),
-              textInput("email", "Email adress", value = 'daniel.knos@gmail.com'),
-              textInput("topScorer", "Top scorer", value = 'Kennedy'),
-              numericInput("yellowCards", "No of yellow cards", value = 100)
+              textInput("name", "Your Name", value = 'Write your name here'),
+              textInput("email", "Email adress", value = 'Write your email here'),
+              textInput("topScorer", "Top scorer", value = 'Write your predicted top scorer here'),
+              numericInput("yellowCards", "No of yellow cards in all games", value = 0)
         )),
     tabItem(tabName = 'export',
             widgetUserBox(

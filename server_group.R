@@ -196,9 +196,13 @@ server <- function(session, input, output) {
     # Write the data to a temporary file locally
     filePath <- file.path(tempdir(), fileName)
     fwrite(allData(), filePath, row.names = FALSE)
+    if(file.exists('droptoken.rds')){
+      drop_upload(filePath, path = 'Euro2020_tip', mode = 'add', dtoken = readRDS('droptoken.rds'))
+      shinyalert("Upload complete", "Click the 'save local copy' button to save a copy of your scores", type = "success")
+    } else {
+      shinyalert("Upload failed", "No rdrop token provided", type = "error")
+    }
     
-    drop_upload(filePath, path = 'Euro2020_tip', mode = 'add', dtoken = readRDS('droptoken.rds'))
-    shinyalert("Upload complete", "Click the 'save local copy' button to save a copy of your scores", type = "success")
     
   })
 
