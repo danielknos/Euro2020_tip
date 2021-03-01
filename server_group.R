@@ -197,7 +197,7 @@ server <- function(session, input, output) {
     filePath <- file.path(tempdir(), fileName)
     fwrite(allData(), filePath, row.names = FALSE)
     
-    drop_upload(filePath, path = 'Euro2020_tip', mode = 'add')
+    drop_upload(filePath, path = 'Euro2020_tip', mode = 'add', dtoken = readRDS('droptoken.rds'))
     shinyalert("Upload complete", "Click the 'save local copy' button to save a copy of your scores", type = "success")
     
   })

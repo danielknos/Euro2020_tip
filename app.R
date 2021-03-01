@@ -11,3 +11,4 @@ ui <- dashboardPage(
 
 shinyApp(ui, server)
 
+# token = drop_auth()

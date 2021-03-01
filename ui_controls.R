@@ -51,7 +51,8 @@ body <- dashboardBody(
                   tags$li("Fill in your name in the Name field in the summary tab"),
                   tags$li("Fill in your predicted top scorer in the topscorer field in the summary tab"),
                   tags$li("Fill in your guess for the number of yellow cards during all the 64 matches (last time the number was 205)"),
-                  tags$li("Click 'export results' and save the .csv file and email it to daniel.knos@gmail.com. I need to have the results 12/6 at 20.00")
+                  tags$li("Click the 'upload results' button which uploads your results to my dropbox. To be safe please also save a local copy in case it gets lost somehow"),
+                  tags$li("The results needs to be uploaded on my dropbox no later than 11/6 at 20.00")
                 )
               )
             ),
@@ -64,7 +65,7 @@ body <- dashboardBody(
               tags$div(
                 tags$ul(
                   tags$li('Correct sign (1X2) - 2 points'),
-                  tags$li('Group stage: correct goal diff (i.e. 2-0 when the game ends 3-1) - 3 points'),
+                  tags$li('Group stage: correct goal diff (i.e. 2-0 when the game ends 3-1) - 3 points (total, combined with correct sign)'),
                   tags$li('Group stage: correct score - 5 points'),
                   tags$li('8th final - 4 points per correct team'),
                   tags$li('Quarter final- 6 points per correct team'),
@@ -130,7 +131,7 @@ body <- dashboardBody(
               img(src="https://image.flaticon.com/icons/svg/323/323275.svg", width=150),
               img(src="https://image.flaticon.com/icons/svg/323/323323.svg", width=150),
               img(src="https://image.flaticon.com/icons/svg/323/323321.svg", width=150),
-              img(src="", width=150)
+              img(src="https://image.flaticon.com/icons/svg/323/323354.svg", width=150)
             )),
     tabItem(tabName = "group_D",
             widgetUserBox(
@@ -148,7 +149,7 @@ body <- dashboardBody(
               img(src="https://image.flaticon.com/icons/svg/323/323270.svg", width=150),
               img(src="https://image.flaticon.com/icons/svg/197/197503.svg", width=150),
               img(src="https://image.flaticon.com/icons/svg/323/323285.svg", width=150),
-              img(src="", width=150)
+              img(src="https://image.flaticon.com/icons/svg/197/197601.svg", width=150)
             )),
     tabItem(tabName = "group_E",
             widgetUserBox(
@@ -166,7 +167,7 @@ body <- dashboardBody(
               img(src="https://image.flaticon.com/icons/svg/323/323365.svg", width=150),
               img(src="https://image.flaticon.com/icons/svg/323/323364.svg", width=150),
               img(src="https://image.flaticon.com/icons/svg/323/323338.svg", width=150),
-              img(src="", width=150)
+              img(src="https://image.flaticon.com/icons/svg/197/197592.svg", width=150)
             )),
     tabItem(tabName = "group_F",
             widgetUserBox(
@@ -184,7 +185,7 @@ body <- dashboardBody(
               img(src="https://image.flaticon.com/icons/svg/323/323315.svg", width=150),
               img(src="https://image.flaticon.com/icons/svg/323/323332.svg", width=150),
               img(src="https://image.flaticon.com/icons/svg/1795/1795606.svg", width=150),
-              img(src="", width=150)
+              img(src="https://image.flaticon.com/icons/svg/323/323287.svg", width=150)
             )),
       tabItem(tabName = "knockout",h2("Knockout stage")),
       tabItem(tabName = "eight_final",
@@ -235,10 +236,10 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              textInput("name", "Your Name", value = 'Write your name here'),
-              textInput("email", "Email adress", value = 'Write your email adress here'),
-              textInput("topScorer", "Top scorer", value = 'Write the last name of your guessed top scorer here'),
-              numericInput("yellowCards", "No of yellow cards", value = 0)
+              textInput("name", "Your Name", value = 'Test_A'),
+              textInput("email", "Email adress", value = 'daniel.knos@gmail.com'),
+              textInput("topScorer", "Top scorer", value = 'Kennedy'),
+              numericInput("yellowCards", "No of yellow cards", value = 100)
         )),
     tabItem(tabName = 'export',
             widgetUserBox(

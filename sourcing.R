@@ -3,7 +3,7 @@ library(shinydashboard)
 library(rhandsontable)
 library(data.table)
 library(shinydashboardPlus)
-library(mailR)
+# library(mailR)
 library(shinyalert)
 library(shinyWidgets)
 library(rdrop2)
@@ -16,3 +16,6 @@ source('./Functions/fill4Final.R')
 source('./Functions/fill1Final.R')
 source('./Functions/getGroupPositions.R')
 source('./Functions/check_answers.R')
+
+
+
