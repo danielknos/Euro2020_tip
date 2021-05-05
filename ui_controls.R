@@ -50,7 +50,7 @@ body <- dashboardBody(
                   tags$li("Fill in the results in the knockout games. Here the result doesnt matter, its only about getting a winner in each match. If its a draw, the home team wins"),
                   tags$li("Fill in your name in the Name field in the summary tab"),
                   tags$li("Fill in your predicted top scorer in the topscorer field in the summary tab"),
-                  tags$li("Fill in your guess for the number of yellow cards during all the 64 matches (last time the number was 205)"),
+                  tags$li("Fill in your guess for the number of yellow cards during all the 51 matches (last time the number was 205)"),
                   tags$li("Click the 'upload results' button which uploads your results to my dropbox. To be safe please also save a local copy in case it gets lost somehow"),
                   tags$li("The results needs to be uploaded on my dropbox no later than 11/6 at 20.00")
                 )
@@ -66,7 +66,7 @@ body <- dashboardBody(
                 tags$ul(
                   tags$li('Correct sign (1X2) - 2 points'),
                   tags$li('Group stage: correct goal diff (i.e. 2-0 when the game ends 3-1) - 3 points (total, combined with correct sign)'),
-                  tags$li('Group stage: correct score - 5 points'),
+                  tags$li('Group stage: correct score - 5 points (total, combined with previous)'),
                   tags$li('8th final - 4 points per correct team'),
                   tags$li('Quarter final- 6 points per correct team'),
                   tags$li('Semi final - 8 points per correct team'),
@@ -86,17 +86,21 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              h3('Results'),
-              rHandsontableOutput("group_A"), 
-              h3('Table'),
-              tableOutput("table_A")  
+              box(width = 12, 
+                img(src="https://image.flaticon.com/icons/svg/197/197518.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/197/197620.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323325.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323306.svg", width=150)
+              ),
+              box(width = 12, 
+                h3('Results'),
+                rHandsontableOutput("group_A"), 
+                h3('Table'),
+                tableOutput("table_A")  
+              )
+              
+            )
             ),
-            fluidRow(
-              img(src="https://image.flaticon.com/icons/svg/197/197518.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/197/197620.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323325.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323306.svg", width=150)
-            )),
     tabItem(tabName = "group_B",
             widgetUserBox(
               title = 'Group B',
@@ -104,17 +108,20 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              h3('Results'),
-              rHandsontableOutput("group_B"), 
-              h3('Table'),
-              tableOutput("table_B")  
+              box(width = 12, 
+                img(src="https://image.flaticon.com/icons/svg/323/323291.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323300.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323320.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323359.svg", width=150)
+              ),
+              box(width = 12, 
+                h3('Results'),
+                rHandsontableOutput("group_B"), 
+                h3('Table'),
+                tableOutput("table_B")  
+              )  
+            )
             ),
-            fluidRow(
-              img(src="https://image.flaticon.com/icons/svg/323/323291.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323300.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323320.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323359.svg", width=150)
-            )),
     tabItem(tabName = "group_C",
             widgetUserBox(
               title = 'Group C',
@@ -122,17 +129,20 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              h3('Results'),
-              rHandsontableOutput("group_C"), 
-              h3('Table'),
-              tableOutput("table_C")  
+              box(width = 12,
+                img(src="https://image.flaticon.com/icons/svg/323/323275.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323323.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323321.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323354.svg", width=150)
+              ),
+              box(width = 12,
+                h3('Results'),
+                rHandsontableOutput("group_C"), 
+                h3('Table'),
+                tableOutput("table_C")  
+              ) 
+            ) 
             ),
-            fluidRow(
-              img(src="https://image.flaticon.com/icons/svg/323/323275.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323323.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323321.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323354.svg", width=150)
-            )),
     tabItem(tabName = "group_D",
             widgetUserBox(
               title = 'Group D',
@@ -140,17 +150,20 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              h3('Results'),
-              rHandsontableOutput("group_D"), 
-              h3('Table'),
-              tableOutput("table_D")  
+              box(width = 12,
+                img(src="https://image.flaticon.com/icons/svg/323/323270.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/197/197503.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323285.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/197/197601.svg", width=150)
+              ),
+              box(
+                h3('Results'),
+                rHandsontableOutput("group_D"), 
+                h3('Table'),
+                tableOutput("table_D")  
+              )  
+            )
             ),
-            fluidRow(
-              img(src="https://image.flaticon.com/icons/svg/323/323270.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/197/197503.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323285.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/197/197601.svg", width=150)
-            )),
     tabItem(tabName = "group_E",
             widgetUserBox(
               title = 'Group E',
@@ -158,17 +171,22 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              h3('Results'),
-              rHandsontableOutput("group_E"), 
-              h3('Table'),
-              tableOutput("table_E")  
+              box(width = 12,
+                img(src="https://image.flaticon.com/icons/svg/323/323365.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323364.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323338.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/197/197592.svg", width=150)
+              ),
+              box(width = 12,
+                h3('Results'),
+                rHandsontableOutput("group_E"), 
+                h3('Table'),
+                tableOutput("table_E")  
+              )
+            )
+            
+              
             ),
-            fluidRow(
-              img(src="https://image.flaticon.com/icons/svg/323/323365.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323364.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323338.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/197/197592.svg", width=150)
-            )),
     tabItem(tabName = "group_F",
             widgetUserBox(
               title = 'Group F',
@@ -176,17 +194,21 @@ body <- dashboardBody(
               type = 2,
               collapsible = FALSE,
               boxToolSize = 'xs',
-              h3('Results'),
-              rHandsontableOutput("group_F"), 
-              h3('Table'),
-              tableOutput("table_F")  
+              box(width = 12,
+                img(src="https://image.flaticon.com/icons/svg/323/323315.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323332.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/1795/1795606.svg", width=150),
+                img(src="https://image.flaticon.com/icons/svg/323/323287.svg", width=150)
+              ),
+              box(width = 12,
+                h3('Results'),
+                rHandsontableOutput("group_F"), 
+                h3('Table'),
+                tableOutput("table_F")  
+              )
+              
+            )
             ),
-            fluidRow(
-              img(src="https://image.flaticon.com/icons/svg/323/323315.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323332.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/1795/1795606.svg", width=150),
-              img(src="https://image.flaticon.com/icons/svg/323/323287.svg", width=150)
-            )),
       tabItem(tabName = "knockout",h2("Knockout stage")),
       tabItem(tabName = "eight_final",
             widgetUserBox(

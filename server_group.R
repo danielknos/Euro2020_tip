@@ -65,6 +65,7 @@ server <- function(session, input, output) {
   final_update <<-  0
   
   observeEvent(input$tabs,{
+    showNotification('Loading matches', id = 'loading_matches_msg', duration = NULL)
     
     
     a_pos <- reactive({if(is.null(calcTable2(tab_A()))) { NULL} else {cbind('group' = 'A',calcTable2(tab_A()))}})
@@ -93,6 +94,7 @@ server <- function(session, input, output) {
                  }")
     })
     eight_final_update <<- 1
+    
   }
   
     # Updating the quarter finals
@@ -149,6 +151,7 @@ server <- function(session, input, output) {
       })
       final_update <<- 1
     }
+    removeNotification(id = 'loading_matches_msg')
   })
   
   topScorerInfo <- reactive(data.table(Game_No = '',Round_Number="", Date = "", Location="TopScorer", Home_Team=input$topScorer, Away_Team="", Group="", Home="", Away=""))
@@ -188,7 +191,7 @@ server <- function(session, input, output) {
   
   observeEvent(input$upload,{
     if(any(answer_check()$Done != 'Yes')){
-      shinyalert("Nope", "Something's missing. Make sure you complete all the steps in the table on top", type = "error")
+      shinyalert("Nope", "Something's missing. Make sure you complete all the steps in the Checks table on the left", type = "error")
       return(NULL)
     }
     
@@ -198,7 +201,9 @@ server <- function(session, input, output) {
     fwrite(allData(), filePath, row.names = FALSE)
     if(file.exists('droptoken.rds')){
       drop_upload(filePath, path = 'Euro2020_tip', mode = 'add', dtoken = readRDS('droptoken.rds'))
-      shinyalert("Upload complete", "Click the 'save local copy' button to save a copy of your scores", type = "success")
+      # shinyalert("Upload complete", "You can also click on the 'save local copy' button to save a copy of your scores", type = "success")
+      send_confirmation_mail(input$name, input$email, filePath)
+      shinyalert("Upload complete", "You should receive a confirmation email shortly. You can also click on the 'save local copy' button to save a copy of your scores", type = "success")
     } else {
       shinyalert("Upload failed", "No rdrop token provided", type = "error")
     }
